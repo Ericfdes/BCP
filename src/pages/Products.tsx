@@ -1,27 +1,38 @@
-import { Product } from "../types/Product.ts";
 
+
+import ProductCard from "../components/product-card";
+import { Product } from "../types/Product";
 
 
 const Products = () => {
+
+  const products: Product[] = [
+
+    {
+      id: '1',
+      name: 'Product 1',
+      price: '$10.00',
+      imageSrc: 'https://picsum.photos/seed/picsum/200/300',
+      imageAlt: 'Product 1 Image',
+      href: '/product/1',
+    },
+    {
+      id: '2',
+      name: 'Product 2',
+      price: '$20.00',
+      imageSrc: 'https://picsum.photos/seed/picsum/50/50',
+      imageAlt: 'Product 2 Image',
+      href: '#',
+    },
+
+
+
+  ]
     return (
-      <div className="contact-container py-10">
-        <h1 className="text-3xl text-center font-bold mb-6">Contact Us</h1>
-        <form className="max-w-lg mx-auto p-4 border rounded-lg shadow">
-          <div className="mb-4">
-            <label className="block text-gray-700">Name</label>
-            <input type="text" className="w-full border rounded p-2" placeholder="Your Name" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Email</label>
-            <input type="email" className="w-full border rounded p-2" placeholder="Your Email" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Message</label>
-            <textarea className="w-full border rounded p-2" placeholder="Your Message"></textarea>
-          </div>
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded">Send</button>
-        </form>
-      </div>
+      <div className="products-page">
+      <h1 className="text-3xl text-center font-bold mb-6">Our Products</h1>
+      <ProductCard products={products} />
+    </div>
     );
   };
   
