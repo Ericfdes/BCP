@@ -14,12 +14,18 @@ import Services from './pages/Services'
 import Contact from './pages/Contact'
 import Products from './pages/Products'
 import ProductPage from './pages/ProductPage'
+import Dashboard from './pages/Dashboard'
+import ProtectedRoute from './components/ProtectedRoute'
+import Login from './components/Login'
+import { AuthProvider } from './context/AuthContext'
+
 
 function App() {
   
 
   return (
     <>
+    <AuthProvider>
    <Nav/>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -28,7 +34,17 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductPage/>} />
+        <Route path="/login" element={<Login />} />
+        <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
       </Routes>
+      </AuthProvider>
     
     <Foot/>
     </>
