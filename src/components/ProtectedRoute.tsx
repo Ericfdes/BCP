@@ -1,20 +1,18 @@
-import React from 'react';
-
-import {Navigate} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-interface ProtectedRouteProps{
-    childern: JSX.Element;
+interface ProtectedRouteProps {
+  children: JSX.Element;
 }
 
-const PortectedRoute: React.FC<ProtectedRouteProps> = ({childern}) =>{
-        const {user} = useAuth();
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  const { user } = useAuth();
 
+  if (!user) {
+    return <Navigate to="/login" />; // Redirect to login page
+  }
 
-        if(!user){
-            return <Navigate to="/"/>;//add /login later once you made the page
-        }
-        return childern
-}
+  return children;
+};
 
-export default PortectedRoute;
+export default ProtectedRoute;

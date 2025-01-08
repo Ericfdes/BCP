@@ -10,6 +10,7 @@ export default {
     extend: {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
+        inter400: ['Roboto','serif'],
       },
       fontWeight: {
         thin: 100,
@@ -21,10 +22,10 @@ export default {
       },
 
       colors: { 
-        'theme-1': '#00A6FB', 
-        'theme-2': '#0582CA', 
-        'theme-3': '#006494',
-        'theme-4' :'#003554',
+        'theme-1': '#DFF2EB', 
+        'theme-2': '#B9E5E8', 
+        'theme-3': '#7AB2D3',
+        'theme-4' :'#4A628A',
         'theme-5':'#051923'
     },
 
